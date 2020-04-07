@@ -9,8 +9,7 @@ export default class List extends Component {
     super(props);
     this.state = {
       inputValue: '',
-      items: [],
-      id:''
+      items: []
     }
   }
 
@@ -32,10 +31,9 @@ export default class List extends Component {
   { 
     let items = this.state.items
     let update=[]
-    console.log("del function")
-    console.log(array)
     //   eslint-disable-next-line
     update=_.pullAt(items,array);
+    update.pop()
     array=[];
     this.setState({
       items
@@ -44,8 +42,6 @@ export default class List extends Component {
   handlechange(e,id)
   {
     array.push(id)
-    console.log("push function")
-    console.log(array)
   }
 
   listItems() {

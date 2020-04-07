@@ -1,12 +1,9 @@
 const reducer = (state = [], action) => {
     switch (action.type) {
-        case 'Add_user':
+        case 'Add-user':
             return [
                 ...state,
-                {
-                    email: action.email,
-                    password: action.password
-                }
+                action.data
             ]
         default: return state
     }
