@@ -1,12 +1,18 @@
 import React, { Component } from 'react'
 import history from './history'
-export default class login extends Component {
-   handlClick()
+import AddUser from './Redux-storage/action'
+import { connect } from 'react-redux'
+class login extends Component {
+   handlClick({ dispatch } ,props)
    {
        let usr=document.getElementById('name').value;
        let psd=document.getElementById('pwd1').value;
        if(usr==='beniel' && psd==='password')
-        history.push('/list')
+       {
+           dispatch(AddUser(usr,psd))
+           console.log(props.displayState)
+           history.push('/list')
+       }
        else
         alert("worng data")
    }
@@ -20,3 +26,10 @@ export default class login extends Component {
         )
     }
 }
+
+const mapStateToProps = state => {
+    return {
+        displayState : state.map((user) => user.email)
+    }
+}
+export default connect(mapStateToProps)(login)

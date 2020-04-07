@@ -1,6 +1,3 @@
-
-
-
 import React, { Component } from 'react'
 import _ from 'lodash';
 import history from './history'
@@ -35,6 +32,8 @@ export default class List extends Component {
   { 
     let items = this.state.items
     let update=[]
+    console.log("del function")
+    console.log(array)
     //   eslint-disable-next-line
     update=_.pullAt(items,array);
     array=[];
@@ -45,6 +44,8 @@ export default class List extends Component {
   handlechange(e,id)
   {
     array.push(id)
+    console.log("push function")
+    console.log(array)
   }
 
   listItems() {
