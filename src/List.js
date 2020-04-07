@@ -3,8 +3,6 @@ import _ from 'lodash';
 import history from './history'
 let array=[];
 export default class List extends Component {
-  
-
   constructor(props) {
     super(props);
     this.state = {
@@ -71,16 +69,16 @@ handleLogout(){
     render() {
         return (
             <div>
-              <table>
-                <th><h1>This is your Dashboard</h1></th>
-                <tr><input type="text" onChange={ (e) => this.onInputChange(e) } /></tr>
-                <td><button onClick={ () => this.addItem() }>Add item</button></td>
-                <td><button onClick={ () => this.delItem() }>delete item</button></td>
+              
+                <h1>This is your Dashboard</h1>
+                <input type="text" onChange={ (e) => this.onInputChange(e) } />
+                <button onClick={ () => this.addItem() }>Add item</button>
+                <button onClick={ () => this.delItem() }>delete item</button>
                 <br/>
-                <tr>{ this.listItems() }</tr>
+                { this.listItems() }
                 <br/>
                 <button onClick={(e=>this.handleLogout(e))}>logout</button>
-                </table>
+                
             </div>
         )
     }
