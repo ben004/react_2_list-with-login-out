@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`list  should match a snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <h1>
+      This is your Dashboard
+    </h1>
+    <input
+      type="text"
+    />
+    <button
+      data-testid="add_button"
+    >
+      Add item
+    </button>
+    <button
+      data-testid="delete_button"
+    >
+      delete item
+    </button>
+    <br />
+    <ol />
+    <br />
+    <button
+      data-testid="logout_button"
+    >
+      logout
+    </button>
+  </div>
+</DocumentFragment>
+`;

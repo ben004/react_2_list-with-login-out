@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`login should take a snapshot 1`] = `
+<DocumentFragment>
+  <div>
+     
+    <h1>
+      Login page
+    </h1>
+    <br />
+    Enter user name :
+    <input
+      data-testid="user_name"
+      id="name"
+      placeholder="Enter user name here"
+      type="text"
+    />
+    <br />
+    Enter password  :
+    <input
+      data-testid="password"
+      id="pwd1"
+      placeholder="Enter Password here"
+      type="password"
+    />
+    <br />
+    <b>
+      <p
+        data-testid="para"
+        id="display"
+      />
+    </b>
+    <br />
+    <button
+      data-testid="login_button"
+    >
+      login
+    </button>
+  </div>
+</DocumentFragment>
+`;
