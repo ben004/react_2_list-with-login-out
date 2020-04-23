@@ -4,12 +4,12 @@ import Login from '../Login'
 import '@testing-library/jest-dom/extend-expect'
 afterEach(cleanup)
 const renderComponent = (props = {}) => 
-  render(<Login {...props}>login</Login>)
+  render(<Login {...props}/>)
 describe("login",()=>{
-it('should take a snapshot', () => {
-    const { asFragment } = renderComponent();
+  it('should take a snapshot', () => {
+    const tree = renderComponent();
     
-    expect(asFragment(<Login />)).toMatchSnapshot();
+    expect(tree).toMatchSnapshot();
    })
    it('should be enabled', () => {
     const { getByTestId } = renderComponent();
