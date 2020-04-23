@@ -29,7 +29,6 @@ export default class List extends Component {
   { 
     let items = this.state.items
     let update=[]
-    //   eslint-disable-next-line
     update=_.pullAt(items,array);
     update.pop()
     array=[];
@@ -72,12 +71,12 @@ handleLogout(){
               
                 <h1>This is your Dashboard</h1>
                 <input type="text" onChange={ (e) => this.onInputChange(e) } />
-                <button onClick={ () => this.addItem() }>Add item</button>
-                <button onClick={ () => this.delItem() }>delete item</button>
+                <button data-testid="add_button" onClick={ () => this.addItem() }>Add item</button>
+                <button data-testid="delete_button" onClick={ () => this.delItem() }>delete item</button>
                 <br/>
                 { this.listItems() }
                 <br/>
-                <button onClick={(e=>this.handleLogout(e))}>logout</button>
+                <button data-testid="logout_button" onClick={(e=>this.handleLogout(e))}>logout</button>
                 
             </div>
         )

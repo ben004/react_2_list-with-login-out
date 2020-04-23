@@ -1,7 +1,7 @@
 
 import React, { Component  } from 'react'
 import { Switch ,Route} from 'react-router-dom'
-import login from './login'
+import login from './Login'
 import list from './List'
 import { Provider } from 'react-redux'
 import store from './Redux-storage/store'
