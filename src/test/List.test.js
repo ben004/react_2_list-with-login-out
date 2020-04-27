@@ -16,7 +16,6 @@ const renderComponent = (props = {}) =>
         expect(getByTestId("logout_button").textContent).toBe("logout");
       });  
       it('should add items properly', () => {
-        //const tree=renderComponent.getInstance()
         const { getByTestId }=renderComponent()
         const input=getByTestId('data')
         const btn = getByTestId('add_button')
