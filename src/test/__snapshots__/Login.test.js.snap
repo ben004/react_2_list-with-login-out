@@ -19,7 +19,7 @@ Object {
           type="text"
         />
         <br />
-        Enter password  :
+        Enter password :
         <input
           data-testid="password"
           id="pwd1"
@@ -57,7 +57,7 @@ Object {
         type="text"
       />
       <br />
-      Enter password  :
+      Enter password :
       <input
         data-testid="password"
         id="pwd1"

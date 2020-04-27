@@ -10,7 +10,9 @@ Object {
           This is your Dashboard
         </h1>
         <input
+          data-testid="data"
           type="text"
+          value=""
         />
         <button
           data-testid="add_button"
@@ -23,7 +25,18 @@ Object {
           delete item
         </button>
         <br />
-        <ol />
+        <br />
+        <button
+          data-testid="clear_button"
+        >
+          Clear item
+        </button>
+        <br />
+        <ol>
+          <label
+            data-testid="values"
+          />
+        </ol>
         <br />
         <button
           data-testid="logout_button"
@@ -39,7 +52,9 @@ Object {
         This is your Dashboard
       </h1>
       <input
+        data-testid="data"
         type="text"
+        value=""
       />
       <button
         data-testid="add_button"
@@ -52,7 +67,18 @@ Object {
         delete item
       </button>
       <br />
-      <ol />
+      <br />
+      <button
+        data-testid="clear_button"
+      >
+        Clear item
+      </button>
+      <br />
+      <ol>
+        <label
+          data-testid="values"
+        />
+      </ol>
       <br />
       <button
         data-testid="logout_button"
