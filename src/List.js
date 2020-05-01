@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import _ from "lodash";
 import history from "./history";
+import { connect } from 'react-redux'
+import { getUser } from './selector'
+import './style.css'
 let array = [];
-export default class List extends Component {
+class List extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -45,7 +48,7 @@ export default class List extends Component {
         <label data-testid="values">
         {items.map((val, id) => {
           return (
-              <li key={id}>
+              <li>
                 <input
                   type="checkbox"
                   onChange={() => {
@@ -66,8 +69,9 @@ export default class List extends Component {
 
   render() {
     return (
-      <div>
-        <h1>This is your Dashboard</h1>
+      <div className="main">
+      <p>Hello {this.props.userName} !!!</p>
+        <p>This is your Dashboard</p>
         <input
           type="text"
           data-testid="data"
@@ -95,7 +99,14 @@ export default class List extends Component {
         >
           logout
         </button>
+        <p>current user: {this.props.userName}</p>
       </div>
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    userName: getUser(state)
+  };
+}
+export default connect(mapStateToProps)(List)

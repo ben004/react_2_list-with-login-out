@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import history from "./history";
 import AddUser from "./Redux-storage/action";
 import store from "./Redux-storage/store";
+import './style.css'
 
 class login extends Component {
   handlClick() {
@@ -14,7 +15,7 @@ class login extends Component {
   }
   render() {
     return (
-      <div>
+      <div className='main'>
         {" "}
         <h1>Login page</h1>
         <br />
@@ -46,4 +47,5 @@ class login extends Component {
   }
 }
 
-export default login;
+
+export default login
