@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import _ from "lodash";
 import history from "./history";
-import { connect } from 'react-redux'
-import { getUser } from './selector'
-import './style.css'
+import { connect } from "react-redux";
+import { getUser , profile } from "./selector";
+import "./style.css";
 let array = [];
 class List extends Component {
   constructor(props) {
@@ -46,8 +46,8 @@ class List extends Component {
     return (
       <ol>
         <label data-testid="values">
-        {items.map((val, id) => {
-          return (
+          {items.map((val, id) => {
+            return (
               <li>
                 <input
                   type="checkbox"
@@ -58,8 +58,9 @@ class List extends Component {
                 />
                 {val}
               </li>
-          );
-        })}</label>
+            );
+          })}
+        </label>
       </ol>
     );
   }
@@ -70,7 +71,8 @@ class List extends Component {
   render() {
     return (
       <div className="main">
-      <p>Hello {this.props.userName} !!!</p>
+        <p>Hello {this.props.userName} !!!</p>
+        <img src={this.props.profile} alt='profile'/>
         <p>This is your Dashboard</p>
         <input
           type="text"
@@ -99,14 +101,14 @@ class List extends Component {
         >
           logout
         </button>
-        <p>current user: {this.props.userName}</p>
       </div>
     );
   }
 }
 const mapStateToProps = (state) => {
   return {
-    userName: getUser(state)
+    userName: getUser(state),
+    profile : profile(state)
   };
-}
-export default connect(mapStateToProps)(List)
+};
+export default connect(mapStateToProps)(List);
