@@ -1,3 +1,17 @@
 .main{
     text-align: center;
 }
+
+.back{
+    text-align: left;
+}
+.logout{
+    text-align:
+    right;
+}
+.corner{
+    text-align: end;
+    border: 0mm;
+    border-bottom: 0mm;
+    border-color: white;
+}

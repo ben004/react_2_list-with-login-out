@@ -70,7 +70,7 @@ class login extends Component {
           placeholder="Enter user name here"
           id="name"
         />
-        <br />
+        <br /><br/>
         Enter password :
         <input
           type="password"

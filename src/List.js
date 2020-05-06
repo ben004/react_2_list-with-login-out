@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import _ from "lodash";
 import history from "./history";
 import { connect } from "react-redux";
-import { getUser , profile } from "./selector";
+import { getUser } from "./selector";
 import "./style.css";
 let array = [];
 class List extends Component {
@@ -30,15 +30,28 @@ class List extends Component {
   delItem() {
     let items = this.state.items;
     _.pullAt(items, array);
+    console.log("before pop in array" + array);
     array = [];
+    console.log("after pop in array" + array);
     this.setState({
       items,
     });
+    items.checked = false;
   }
   clear() {
     this.setState({
       items: [],
     });
+  }
+  handleupdate() {
+    let items = this.state.items;
+    for (let index = 0; index < array.length; index++) {
+      items[array[index]] = this.state.inputValue;
+    }
+    this.setState({
+      items,
+    });
+    array = [];
   }
 
   listItems() {
@@ -51,10 +64,11 @@ class List extends Component {
               <li>
                 <input
                   type="checkbox"
+                  name="check"
                   onChange={() => {
                     array.push(id);
+                    console.log(array);
                   }}
-                  checked={_.includes(array, id)}
                 />
                 {val}
               </li>
@@ -67,48 +81,57 @@ class List extends Component {
   handleLogout() {
     history.push("/");
   }
+  handleProfile() {
+    history.push("/profile");
+  }
 
   render() {
     return (
-      <div className="main">
-        <p>Hello {this.props.userName} !!!</p>
-        <img src={this.props.profile} alt='profile'/>
-        <p>This is your Dashboard</p>
-        <input
-          type="text"
-          data-testid="data"
-          value={this.state.inputValue}
-          onChange={(e) => this.onInputChange(e)}
-        />
+      <div>
+        <div className="corner">
+          <button onClick={this.handleProfile}>
+            view profile
+          </button>
+        </div>
+        <div className="main">
+          <b>Hello {this.props.userName} !!!</b>
+          <p>This is your Dashboard</p>
+          <input
+            type="text"
+            data-testid="data"
+            value={this.state.inputValue}
+            onChange={(e) => this.onInputChange(e)}
+          />
 
-        <button data-testid="add_button" onClick={() => this.addItem()}>
-          Add item
-        </button>
-        <button data-testid="delete_button" onClick={() => this.delItem()}>
-          delete item
-        </button>
-        <br />
-        <br />
-        <button data-testid="clear_button" onClick={() => this.clear()}>
-          Clear item
-        </button>
-        <br />
-        {this.listItems()}
-        <br />
-        <button
-          data-testid="logout_button"
-          onClick={(e) => this.handleLogout(e)}
-        >
-          logout
-        </button>
+          <button data-testid="add_button" onClick={() => this.addItem()}>
+            Add item
+          </button>
+          <button data-testid="delete_button" onClick={() => this.delItem()}>
+            delete item
+          </button>
+          <button onClick={(e) => this.handleupdate(e)}>update item</button>
+          <br />
+          <br />
+          <button data-testid="clear_button" onClick={() => this.clear()}>
+            Clear item
+          </button>
+          <br />
+          {this.listItems()}
+          <br />
+          <button
+            data-testid="logout_button"
+            onClick={(e) => this.handleLogout(e)}
+          >
+            logout
+          </button>
+        </div>
       </div>
     );
   }
 }
 const mapStateToProps = (state) => {
   return {
-    userName: getUser(state),
-    profile : profile(state)
+    userName: getUser(state)
   };
 };
 export default connect(mapStateToProps)(List);
